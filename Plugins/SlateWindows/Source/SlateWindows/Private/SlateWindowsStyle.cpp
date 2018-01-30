@@ -46,6 +46,19 @@ TSharedRef< FSlateStyleSet > FSlateWindowsStyle::Create()
 	Style->SetContentRoot(IPluginManager::Get().FindPlugin("SlateWindows")->GetBaseDir() / TEXT("Resources"));
 
 	Style->Set("SlateWindows.OpenPluginWindow", new IMAGE_BRUSH(TEXT("ButtonIcon_40x"), Icon40x40));
+	Style->Set("BG", new IMAGE_BRUSH(TEXT("bg"), FVector2D(1022,1024)));
+	FMargin Button1Margin(2.0 / 1.0f, 2.0 / 10.0f, 2.0 / 10.0f, 2.0 / 10.0f);
+
+	Style->Set("UI.Button1", FButtonStyle().SetNormal(BOX_BRUSH("Button_N", Button1Margin))
+		.SetHovered(BOX_BRUSH("Button_H", Button1Margin))
+		.SetPressed(BOX_BRUSH("Button_N", Button1Margin))
+		.SetDisabled(BOX_BRUSH("Button_N", Button1Margin))
+
+	);
+	Style->Set("UI.InputLineText", FEditableTextBoxStyle().SetBackgroundImageNormal(BOX_BRUSH("Button_N", Button1Margin))
+		.SetBackgroundImageFocused(BOX_BRUSH("Button_N", Button1Margin))
+	);
+	//Style->Set();
 
 	return Style;
 }

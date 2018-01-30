@@ -1,4 +1,5 @@
 #include "SEditableTextBox.h"
+#include  "SlateWindowsStyle.h"
 #include  "SlateBasics.h"
 #pragma once
 
@@ -25,7 +26,27 @@ public:
 		OnloginDelegate = InArgs._OnStartLogin;
 		this->ChildSlot.Padding(50,50,50,50)
 			[
-			SNew(SVerticalBox)
+		
+			
+		
+		    SNew(SVerticalBox)
+			+SVerticalBox::Slot().VAlign(VAlign_Top)
+			[
+			
+			SNew(SHorizontalBox)
+			+SHorizontalBox::Slot()
+		
+			[
+			
+			SNew(SImage)
+			.Image(FSlateWindowsStyle::Get().GetBrush("bg"))
+			
+			
+			]
+			
+			
+			]
+			
 			+SVerticalBox::Slot().AutoHeight()
 			[
 			SAssignNew(UserNamePtr,SEditableTextBox)
@@ -50,6 +71,7 @@ public:
 			.Text(LOCTEXT("login","µÇÂ¼"))
 			
 			]
+				
 			];
 
 	}

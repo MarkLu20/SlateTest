@@ -3,6 +3,7 @@
 #include "SlateWindows.h"
 #include  "SWdigetDemoA.h"
 #include  "SWidgetDemoB.h"
+#include  "AutoLayout.h"
 #include "SlateWindowsStyle.h"
 #include "SlateWindowsCommands.h"
 #include "LevelEditor.h"
@@ -79,10 +80,15 @@ TSharedRef<SDockTab> FSlateWindowsModule::OnSpawnPluginTab(const FSpawnTabArgs& 
 			.HAlign(HAlign_Center)
 			.VAlign(VAlign_Center)*/
 			SNew(SWdigetDemoB)
+
+
+
 			
 	
 	
 		];
+	
+		
 }
 
 void FSlateWindowsModule::PluginButtonClicked()

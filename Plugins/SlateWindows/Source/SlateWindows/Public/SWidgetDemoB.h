@@ -1,4 +1,5 @@
 #include"SCompoundWidget.h"
+#include "AutoLayout.h"
 #include "SlateWindows.h"
 #include "SlateBasics.h"
 #include  "SlateExtras.h"
@@ -10,6 +11,7 @@ class SWdigetDemoB :public SCompoundWidget
 {
 public:
 	void Onlogin(FString usn, FString pwd);
+	TSharedPtr<SAutoLayout> SLayoutPtr;
 
 public:
 	SLATE_BEGIN_ARGS(SWdigetDemoB) {}
@@ -19,14 +21,26 @@ public:
 	{
 		this->ChildSlot
 			[
-			SNew(SEventTest)
-			.OnStartLogin(this,&SWdigetDemoB::Onlogin)
+		//	/*SNew(SEventTest)
+		//	.OnStartLogin(this,&SWdigetDemoB::Onlogin)*/
+				SAssignNew(SLayoutPtr,SAutoLayout)
 			
 			
 			
 			
 			];
 
+		for (int32 i = 0; i < 80; i++)
+		{
+			SLayoutPtr->AddSlot()
+				[
+
+
+					SNew(SButton)
+					.Text(FText::FromString(FString::FromInt(i)))
+
+				];
+		}
 
 		}
 
